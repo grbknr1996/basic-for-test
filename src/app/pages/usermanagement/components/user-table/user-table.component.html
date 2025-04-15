@@ -1,0 +1,91 @@
+<p-table
+  #dt
+  [value]="users"
+  [paginator]="true"
+  [rows]="paginatorOptions.rows"
+  [rowsPerPageOptions]="paginatorOptions.rowsPerPageOptions"
+  [globalFilterFields]="['username', 'email', 'status']"
+  [(selection)]="selectedUsers"
+  [rowHover]="true"
+  dataKey="id"
+  [loading]="loading"
+  styleClass="p-datatable-gridlines p-datatable-sm"
+  [tableStyle]="{ 'min-width': '75rem' }"
+  [resizableColumns]="true"
+  columnResizeMode="expand"
+>
+  <!-- Caption template remains the same -->
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 2rem">Avatar</th>
+      <th pSortableColumn="username" style="width: 10rem">
+        Username <p-sortIcon field="username"></p-sortIcon>
+      </th>
+      <th pSortableColumn="email" style="width: 10rem">
+        Email <p-sortIcon field="email"></p-sortIcon>
+      </th>
+      <th pSortableColumn="createdOn" style="width: 10rem">
+        Created On <p-sortIcon field="createdOn"></p-sortIcon>
+      </th>
+      <th pSortableColumn="updatedOn" style="width: 10rem">
+        Updated On <p-sortIcon field="updatedOn"></p-sortIcon>
+      </th>
+      <th pSortableColumn="status" style="width: 10rem">
+        Status <p-sortIcon field="status"></p-sortIcon>
+      </th>
+      <th style="width: 1rem">Action</th>
+    </tr>
+    <!-- Filter row remains the same -->
+  </ng-template>
+
+  <ng-template pTemplate="body" let-user>
+    <tr>
+      <td style="text-align: center">
+        <p-avatar
+          [image]="user.avatarUrl"
+          [style]="{ width: '2rem', height: '2rem' }"
+          shape="circle"
+          [styleClass]="!user.avatarUrl ? 'bg-primary' : ''"
+        >
+        </p-avatar>
+      </td>
+      <td>
+        <span class="text-truncate block" [title]="user.username">{{
+          user.username
+        }}</span>
+      </td>
+      <td>
+        <span class="text-truncate block" [title]="user.email">{{
+          user.email
+        }}</span>
+      </td>
+      <td>{{ user.createdOn | date : "short" }}</td>
+      <td>{{ user.updatedOn | date : "short" }}</td>
+      <td>
+        <p-tag
+          [value]="user.status"
+          [severity]="getStatusSeverity(user.status)"
+        >
+        </p-tag>
+      </td>
+      <td>
+        <p-menu
+          #menu
+          [model]="getActionsForUser(user)"
+          appendTo="body"
+          [popup]="true"
+        ></p-menu>
+        <button
+          pButton
+          type="button"
+          icon="pi pi-ellipsis-v"
+          class="p-button-rounded p-button-text"
+          (click)="menu.toggle($event)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+
+  <!-- Other templates remain the same -->
+</p-table>

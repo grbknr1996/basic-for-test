@@ -1,0 +1,62 @@
+<div class="layout-container" [ngClass]="{ 'sidebar-active': sidebarVisible }">
+  <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+
+  <app-sidebar [visible]="sidebarVisible"></app-sidebar>
+
+  <div class="layout-content">
+    <div class="content-wrapper">
+      <main class="main-content">
+        <ng-content></ng-content>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img
+              src="assets/images/wipo-logo.png"
+              alt="WIPO Logo"
+              class="logo"
+            />
+            <span>WIPO</span>
+          </div>
+          <div class="footer-links">
+            <div class="link-section">
+              <h4>About WIPO</h4>
+              <ul>
+                <li><a href="#">Who We Are</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">Structure</a></li>
+              </ul>
+            </div>
+            <div class="link-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Publications</a></li>
+                <li><a href="#">News</a></li>
+              </ul>
+            </div>
+            <div class="link-section">
+              <h4>Contact</h4>
+              <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Offices</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          © {{ currentYear }} World Intellectual Property Organization
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Overlay for mobile sidebar -->
+  <div
+    class="layout-overlay"
+    *ngIf="sidebarVisible"
+    (click)="toggleSidebar()"
+  ></div>
+</div>

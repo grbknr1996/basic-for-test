@@ -1,0 +1,315 @@
+.navbar-container {
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--p-navigation-background-color, var(--p-primary-50));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .logo {
+      height: 40px;
+    }
+
+    .organization-name {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--p-primary-600);
+    }
+  }
+
+  // Desktop navigation styling
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .menu-button {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        .nav-link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: var(--p-primary-700);
+          font-weight: 500;
+          padding: 0.5rem 0;
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          &:hover {
+            color: var(--p-primary-500);
+          }
+        }
+
+        // Language dropdown styling
+        .language-selector {
+          .language-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--p-primary-700);
+            font-weight: 500;
+            padding: 0.5rem 0;
+
+            &:hover {
+              color: var(--p-primary-500);
+            }
+
+            i:first-child {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+
+        // User dropdown styling
+        .user-dropdown-trigger {
+          display: flex;
+          align-items: center;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          color: var(--p-primary-700);
+          font-weight: 500;
+          padding: 0.5rem 0;
+
+          &:hover {
+            color: var(--p-primary-500);
+          }
+
+          .user-name {
+            margin-right: 0.25rem;
+          }
+        }
+      }
+
+      // Search container styling
+      .search-container {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+
+        .p-input-icon-left {
+          i {
+            color: var(--p-text-color-secondary);
+          }
+
+          input {
+            width: 200px;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile navigation styling
+  .mobile-nav {
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+    }
+
+    .mobile-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    ::ng-deep {
+      .mobile-sidebar {
+        width: 300px;
+
+        .p-sidebar-content {
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        // Override default PrimeNG sidebar styling
+        .p-sidebar-header {
+          display: none;
+        }
+      }
+    }
+
+    // Mobile menu header with close button
+    .mobile-menu-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid var(--p-surface-200);
+
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+
+      .close-button {
+        padding: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    // User info styling
+    .mobile-user-info {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid var(--p-surface-200);
+      background-color: var(--p-surface-50);
+
+      .user-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: var(--p-primary-600);
+      }
+
+      .user-details {
+        .user-name {
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+        }
+
+        .user-email {
+          font-size: 0.875rem;
+          color: var(--p-text-color-secondary);
+        }
+      }
+    }
+
+    // Search box styling
+    .mobile-search {
+      padding: 1rem;
+      border-bottom: 1px solid var(--p-surface-200);
+
+      .p-input-icon-left {
+        width: 100%;
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    // Mobile links styling
+    .mobile-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-grow: 1;
+
+      .mobile-link-item {
+        border-bottom: 1px solid var(--p-surface-200);
+
+        a {
+          display: flex;
+          align-items: center;
+          padding: 1rem;
+          color: var(--p-primary-700);
+          text-decoration: none;
+
+          i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+          }
+        }
+
+        &.language-selector {
+          .language-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--p-surface-50);
+            font-weight: 500;
+
+            i {
+              margin-right: 1rem;
+              font-size: 1.2rem;
+            }
+          }
+
+          .language-options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: var(--p-surface-50);
+
+            li {
+              a {
+                padding: 0.75rem 1rem 0.75rem 3rem;
+                display: flex;
+                align-items: center;
+
+                i {
+                  margin-right: 0.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Logout button styling
+    .mobile-logout {
+      padding: 1rem;
+      border-top: 1px solid var(--p-surface-200);
+      margin-top: auto;
+
+      .logout-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--p-danger-500);
+        border-color: var(--p-danger-500);
+
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

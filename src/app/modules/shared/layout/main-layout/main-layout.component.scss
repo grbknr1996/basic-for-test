@@ -1,0 +1,150 @@
+// Variables
+$navbar-height: 65px;
+$sidebar-width: 250px;
+$transition-duration: 0.3s;
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+
+  &.sidebar-active {
+    .layout-content {
+      @media (min-width: 992px) {
+        margin-left: $sidebar-width;
+      }
+    }
+  }
+}
+
+// Content area styling
+.layout-content {
+  flex: 1;
+  margin-top: $navbar-height;
+  transition: margin-left $transition-duration ease;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    &.sidebar-active {
+      margin-left: $sidebar-width;
+      width: calc(100% - #{$sidebar-width});
+    }
+  }
+
+  .content-wrapper {
+    min-height: calc(100vh - #{$navbar-height});
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+
+  .footer {
+    background-color: var(--p-primary-800);
+    color: white;
+
+    .footer-content {
+      display: flex;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+      }
+
+      .footer-logo {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .logo {
+          height: 50px;
+        }
+
+        span {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+
+      .footer-links {
+        flex: 2;
+        display: flex;
+        justify-content: space-around;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .link-section {
+          h4 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              margin-bottom: 0.5rem;
+
+              a {
+                color: var(--p-primary-200);
+                text-decoration: none;
+                transition: color 0.2s;
+
+                &:hover {
+                  color: white;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--p-primary-900);
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Overlay for mobile
+.layout-overlay {
+  display: none;
+
+  @media (max-width: 991px) {
+    display: block;
+    position: fixed;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+}

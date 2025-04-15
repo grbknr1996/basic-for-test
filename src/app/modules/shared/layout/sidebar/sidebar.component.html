@@ -1,0 +1,47 @@
+<div class="layout-sidebar" [ngClass]="{ active: visible }">
+  <div class="sidebar-header">
+    <h3>Welcome</h3>
+  </div>
+  <ul class="sidebar-menu">
+    <li *ngFor="let item of menuItems">
+      <!-- Items with no subitems -->
+      <a
+        *ngIf="!hasSubItems(item)"
+        [routerLink]="item.routerLink"
+        routerLinkActive="active"
+        class="menu-item"
+      >
+        <i [class]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+
+      <!-- Items with subitems (parent menu) -->
+      <div
+        *ngIf="hasSubItems(item)"
+        class="submenu-parent"
+        [ngClass]="{ expanded: item.expanded }"
+      >
+        <a (click)="toggleSubmenu(item)" class="menu-item submenu-trigger">
+          <i [class]="item.icon"></i>
+          <span>{{ item.label }}</span>
+          <i class="submenu-arrow pi pi-chevron-right"></i>
+        </a>
+
+        <!-- Submenu -->
+        <ul class="submenu" [ngClass]="{ show: item.expanded }">
+          <li *ngFor="let subItem of item.items">
+            <a
+              [routerLink]="subItem.routerLink"
+              routerLinkActive="active"
+              class="submenu-item"
+            >
+              <span class="bullet">○</span>
+              <i [class]="subItem.icon"></i>
+              <span>{{ subItem.label }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

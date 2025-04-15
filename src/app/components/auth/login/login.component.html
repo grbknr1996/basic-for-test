@@ -1,0 +1,119 @@
+<div class="login-container">
+  <p-card>
+    <div class="text-center mb-5">
+      <!-- <img src="assets/images/logo.png" alt="Logo" height="50" class="mb-3" /> -->
+
+      <span class="text-900 text-3xl font-bold">Sign In</span>
+      <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+      <span class="text-600 font-medium">Sign in to continue</span>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Error Message -->
+      <p-message
+        *ngIf="error$ | async as errorMsg"
+        severity="error"
+        [text]="errorMsg"
+        styleClass="w-full mb-3"
+      ></p-message>
+      <!-- Email Field -->
+      <div class="field mb-4">
+        <label for="email" class="block text-900 font-medium mb-2">Email</label>
+        <div class="p-input-icon-right w-full">
+          <i class="pi pi-envelope"></i>
+          <input
+            id="email"
+            type="email"
+            pInputText
+            formControlName="email"
+            placeholder="Email address"
+            class="w-full"
+            [ngClass]="{
+              'ng-invalid ng-dirty': submitted && f['email'].errors
+            }"
+          />
+        </div>
+        <small
+          *ngIf="submitted && f['email'].errors"
+          class="p-error block mt-1"
+        >
+          <span *ngIf="f['email'].errors['required']">Email is required</span>
+          <span *ngIf="f['email'].errors['email']"
+            >Please enter a valid email address</span
+          >
+        </small>
+      </div>
+      <!-- Password Field -->
+      <div class="field mb-4">
+        <label for="password" class="block text-900 font-medium mb-2"
+          >Password</label
+        >
+        <div class="p-input-icon-right w-full">
+          <i class="pi pi-lock"></i>
+          <p-password
+            id="password"
+            formControlName="password"
+            [toggleMask]="true"
+            [feedback]="false"
+            placeholder="Password"
+            styleClass="w-full"
+            inputStyleClass="w-full"
+            [ngClass]="{
+              'ng-invalid ng-dirty': submitted && f['password'].errors
+            }"
+          ></p-password>
+        </div>
+        <small
+          *ngIf="submitted && f['password'].errors"
+          class="p-error block mt-1"
+        >
+          <span *ngIf="f['password'].errors['required']"
+            >Password is required</span
+          >
+          <span *ngIf="f['password'].errors['minlength']"
+            >Password must be at least 8 characters</span
+          >
+        </small>
+      </div>
+      <!-- Remember Me & Forgot Password -->
+      <div
+        class="flex flex-col align-items-center justify-content-between mb-4"
+      >
+        <div class="flex align-items-center">
+          <p-checkbox
+            formControlName="rememberMe"
+            [binary]="true"
+            inputId="rememberMe"
+          ></p-checkbox>
+          <label for="rememberMe" class="ml-2 text-900">Remember me</label>
+        </div>
+        <div class="flex align-items-center">
+          <a
+            routerLink="/forgot-password"
+            class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+            >Forgot password?</a
+          >
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div class="field mb-4">
+        <p-button
+          label="Sign In"
+          icon="pi pi-user"
+          styleClass="w-full"
+          [loading]="isLoading$ | async"
+          type="submit"
+        ></p-button>
+      </div>
+    </form>
+    <p-divider [align]="'center'">
+      <span class="text-600 font-normal">OR</span>
+    </p-divider>
+    <div class="flex align-items-center justify-content-center gap-3 mt-3">
+      <p-button
+        styleClass="p-button-outlined"
+        label="Sign Up"
+        routerLink="/signup"
+      ></p-button>
+    </div>
+  </p-card>
+</div>
