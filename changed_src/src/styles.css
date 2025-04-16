@@ -1,0 +1,512 @@
+shtml,
+body,
+app-root {
+  height: 100vh;
+  display: block;
+  min-height: -webkit-fill-available;
+  height: calc(var(--vh, 1vh) * 100);
+}
+body {
+  overflow: auto;
+  font-size: 1rem;
+  margin: 0 30px 0 30px;
+  padding: 0;
+  transition: opacity 0.7s linear;
+}
+.app {
+  max-width: 100vw;
+  margin: 10px 10px 10px 10px;
+  flex-grow: 1;
+  width: calc(100vw);
+  grid-column-start: 2;
+  grid-row-start: 3;
+  position: relative;
+  display: grid;
+  grid-template-rows: [nav-bar] auto [rest] 100fr;
+}
+.app .heightWithoutHeader {
+  height: calc( 100vh - 48px );
+}
+.app * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.app ul {
+  list-style: none;
+}
+.app button {
+  align-items: center;
+  user-select: none;
+}
+.app button[disabled] {
+  opacity: 0.5;
+}
+.app button i.fa,
+.app button i.fas,
+.app button svg {
+  margin-right: 10px;
+}
+.app iframe {
+  border: none;
+}
+.app small {
+  display: block;
+  font-size: small;
+}
+.app small * {
+  font-size: small;
+}
+.app .big {
+  display: block;
+  font-size: small;
+}
+.app .big * {
+  font-size: small;
+}
+.app [routerlink] {
+  outline: none !important;
+}
+.app a,
+.app a:hover {
+  cursor: pointer;
+  color: inherit;
+}
+.app .breakword {
+  word-break: break-word;
+}
+.app input[type=checkbox] {
+  cursor: pointer;
+  transform: translateY(1px);
+}
+.app input[type=checkbox]:focus {
+  box-shadow: none;
+}
+.app u,
+.app .underline {
+  text-decoration: underline;
+}
+.app pre {
+  font-family: monospace;
+  font-size: x-small;
+  white-space: pre-wrap;
+}
+.app .addspaces > *:not(:last-child) {
+  margin-right: 1ch;
+}
+.app .animated {
+  transition: all 0.3s cubic-bezier(0.88, 0.07, 0.18, 0.97);
+}
+.app .animatedSlow {
+  transition: all 0.7s cubic-bezier(0.88, 0.07, 0.18, 0.97);
+}
+.app .bgTransp {
+  background: transparent !important;
+}
+.app .blurry {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.app .border {
+  border: #00f dashed 1px;
+}
+.app .border.red {
+  border: #f00 dashed 1px;
+}
+.app .border.green {
+  border: #008000 dashed 1px;
+}
+.app .border.yellow {
+  border: #ff0 dashed 1px;
+}
+.app .border.purple {
+  border: #800080 dashed 1px;
+}
+.app button[disabled] {
+  cursor: not-allowed !important;
+}
+.app .capitalized,
+.app .capitalize {
+  text-transform: capitalize;
+}
+.app .centered {
+  text-align: center;
+}
+.app .cursorPointer,
+.app .pointer {
+  cursor: pointer;
+}
+.app .dev {
+  background-color: #242424 !important;
+  color: #fff !important;
+  padding: 2px 5px !important;
+  font-family: 'Roboto Mono', monospace !important;
+  font-size: x-small !important;
+  text-align: left !important;
+  word-break: break-all;
+  line-height: initial;
+}
+.app .dev * {
+  color: #fff !important;
+  font-size: inherit !important;
+  font-family: 'Roboto Mono', monospace !important;
+  word-break: break-all;
+}
+.app .displayBlock,
+.app .dispBlock {
+  display: block;
+}
+.app .displayNone,
+.app .dispNone {
+  display: none;
+}
+.app .flex {
+  display: flex;
+}
+.app .center-h,
+.app .center-all {
+  justify-content: center;
+}
+.app .column {
+  flex-direction: column;
+}
+.app .grow,
+.app .flexgrow,
+.app .flexGrow {
+  flex-grow: 1;
+}
+.app .inline,
+.app .center-v,
+.app .center-all {
+  align-items: center;
+}
+.app .inline:not(.column) > *,
+.app .center-v:not(.column) > *,
+.app .center-all:not(.column) > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.app .flex-end {
+  justify-content: flex-end;
+}
+.app .rowf {
+  flex-direction: row;
+}
+.app .space-around {
+  justify-content: space-around;
+}
+.app .space-between {
+  justify-content: space-between;
+}
+.app .stretch {
+  align-items: stretch;
+}
+.app .wrap {
+  flex-wrap: wrap;
+}
+.app .flexgrow,
+.app .flex-grow {
+  flex-grow: 1;
+}
+.app .fullscreen {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+.app .fullwidth,
+.app .fullWidth {
+  width: 100%;
+}
+.app .grid {
+  display: grid;
+}
+.app .hidden,
+.app [hidden] {
+  visibility: hidden !important;
+}
+.app .inverted {
+  -webkit-filter: invert(100%);
+}
+.app label {
+  cursor: pointer;
+}
+.app .padding5 {
+  padding: 5px;
+}
+.app .noBorder,
+.app .noborder {
+  border: none !important;
+}
+.app .noBorder tr,
+.app .noborder tr,
+.app .noBorder td,
+.app .noborder td {
+  border: none !important;
+}
+.app .noevents,
+.app .noEvents {
+  pointer-events: none;
+}
+.app .nohighlight,
+.app ui-switch {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+.app .noMargin,
+.app .nomargin {
+  margin: 0 !important;
+}
+.app .noPadding,
+.app .nopadding {
+  padding: 0 !important;
+}
+.app .nogrow,
+.app .noGrow {
+  flex-grow: 0;
+}
+.app .noshrink,
+.app .noShrink {
+  flex-shrink: 0;
+}
+.app .noselect,
+.app .noSelect {
+  user-select: none;
+}
+.app .nounderline,
+.app .noUnderline {
+  text-decoration: none !important;
+}
+.app .opaque {
+  opacity: 1 !important;
+}
+.app .overlay {
+  width: 200vw;
+  height: 200vh;
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  pointer-events: none;
+}
+.app .overlay.active {
+  background-color: rgba(0,0,0,0.3);
+  pointer-events: auto;
+}
+.app .positionInitial {
+  position: initial;
+}
+.app .scroller {
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex-shrink: 1;
+  height: 100%;
+  max-height: 100%;
+}
+.app .shadow {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.app .showOnHover {
+  opacity: 0.2;
+}
+.app .showOnHover:hover {
+  opacity: 1;
+}
+.app .showButtonsOnHover .buttons {
+  opacity: 0.2;
+}
+.app .showButtonsOnHover:hover .buttons {
+  opacity: 1;
+}
+.app .singleLine,
+.app .nobreak,
+.app .nowrap {
+  white-space: nowrap;
+}
+.app .menu_tools {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+.app .menu_tools span {
+  padding-left: 5px;
+}
+@-webkit-keyframes spinning {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.app .spinning {
+  -webkit-animation: spinning 2s linear infinite;
+  -moz-animation: spinning 2s linear infinite;
+  -ms-animation: spinning 2s linear infinite;
+  -o-animation: spinning 2s linear infinite;
+  animation: spinning 2s linear infinite;
+}
+.app .uppercase {
+  text-transform: uppercase;
+}
+.app .host {
+  position: absolute;
+  color: #008000;
+  transform: rotate(-90deg) translate3d(0, 0, 0);
+  font-family: "impact";
+  font-size: 20px;
+  text-align: center;
+  top: 35px;
+  left: -5px;
+  line-height: 20px;
+}
+.app .appVersion {
+  font-size: small;
+  text-align: right;
+  margin-right: 10px;
+}
+@-moz-keyframes spinning {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinning {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinning {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinning {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.app .capitalize {
+  text-transition: capitalize;
+}
+.app .scroller {
+  padding: 1px 40px 15px 40px;
+  display: flex;
+}
+.app h1 {
+  padding-bottom: 10px;
+}
+.app .landing-page-table-container {
+  margin-top: 10px;
+}
+.app .geo-grid-drawing-container {
+  margin-bottom: 10px;
+  margin-top: 2px;
+}
+.app .flagHeaderClass,
+.app .countryHeaderClass {
+  text-align: left;
+}
+.app .patentHeaderClass,
+.app .designsHeaderClass,
+.app .tmHeaderClass,
+.app .giHeaderClass,
+.app .portfolioHeaderClass {
+  text-align: center;
+}
+.app .countryBodyClass {
+  text-align: left;
+  padding-left: 10px;
+}
+.app .flagClass,
+.app .patentBodyClass,
+.app .designsBodyClass,
+.app .tmBodyClass,
+.app .giBodyClass,
+.app .portfolioBodyClass {
+  text-align: center;
+}
+.app .countButtonClass {
+  text-align: center;
+  margin: 0px 8px 2px 0px;
+  padding: 2px;
+  border: 1.4px solid;
+  font-weight: bold;
+  border-radius: 6px;
+  color: #fff;
+}
+.app .countButtonClass div:hover {
+  margin: 0px 8px 2px 0px;
+  border: 1px solid;
+  padding: 2px;
+  border-width: thin;
+  color: #0d5fa1;
+  background-color: #d3d3d3;
+}
+.app .countButtonClass-zero {
+  text-align: center;
+  margin: 0px 8px 2px 0px;
+  padding: 2px;
+  border: 1px solid;
+  color: #80807f;
+  border-radius: 6px;
+}
+.app .primary-btn-color {
+  background-color: #314668;
+  border-color: #314668;
+}
